@@ -1,0 +1,6 @@
+{
+  "name": "Instagram Following Analyzer & Exporter",
+  "description": "Scarica, organizza ed esporta in Excel e CSV i profili che segui su Instagram, con categorizzazione AI Gemini di studi di design, artisti, posizioni geografiche e stili visivi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
