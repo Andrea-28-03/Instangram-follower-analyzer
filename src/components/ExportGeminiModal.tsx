@@ -55,6 +55,7 @@ Restituisci SOLO ED ESCLUSIVAMENTE un array JSON valido (nessun markdown, nessun
       "locationStreet": "Via (opzionale)",
       "visualStyle": "Se è un brand/creativo descrivi lo stile in 1 frase. Se è un amico/istituzione, lascia vuoto.",
       "keySpecialties": ["tag1", "tag2"], // Array di max 3 tag descrittivi reali
+      "designTags": ["Automotive"], // Array di tag specifici per il tipo di design. Scegli da un roster coerente: Light Design, Automotive, Product Design, Architecture, Interior Design, UI/UX, Graphic Design, 3D Modeling, Animation, Video Production, Illustration, Branding, Fashion, Photography, Art, CGI, VFX, Motion Graphics, Altro.
       "description": "Breve sintesi FATTUALE (1-2 frasi) di chi sono, basata SOLO sulle info trovate. Se non c'è nulla, lascia vuoto.",
       "website": "Sito web ufficiale (se presente)"
     }

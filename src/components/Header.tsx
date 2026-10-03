@@ -72,25 +72,27 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="bg-[#0a0a0b] border-b border-[#26262b] sticky top-0 z-30 shadow-xs">
+    <header className="bg-[#0a0a0b] border-b border-[#26262b] relative z-20 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3.5">
           {/* Brand & Title */}
-          <div className="flex items-center gap-3">
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 style={{ fontFamily: 'Georgia, serif' }} className="text-2xl italic text-[#c5a059]">
-                  Curator AI
-                </h1>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h1 style={{ fontFamily: 'Georgia, serif' }} className="text-2xl italic text-[#c5a059]">
+                    Curator AI
+                  </h1>
+                </div>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-[#6b6b76] mt-1">
+                  Instagram Intelligence
+                </p>
               </div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#6b6b76] mt-1">
-                Instagram Intelligence
-              </p>
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex items-center flex-wrap gap-2 sm:gap-2.5">
+          <div className="flex items-center overflow-x-auto pb-1 md:pb-0 no-scrollbar gap-2 sm:gap-2.5 w-full md:w-auto">
             {/* Import Button */}
             <button
               id="import-btn"

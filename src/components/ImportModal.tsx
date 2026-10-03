@@ -93,29 +93,29 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/50 backdrop-blur-xs animate-fade-in">
-      <div className="bg-white rounded-2xl shadow-2xl border border-stone-200 w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0a0a0b]/80 backdrop-blur-xs animate-fade-in">
+      <div className="bg-[#121216] rounded-sm shadow-2xl border border-[#26262b] w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-stone-200 flex items-center justify-between bg-stone-50/80">
+        <div className="px-6 py-4 border-b border-[#26262b] flex items-center justify-between bg-[#0f0f11]">
           <div>
-            <h2 className="text-base sm:text-lg font-semibold text-stone-900">
+            <h2 className="text-base sm:text-lg font-medium text-[#e2e2e2]">
               Importa profili seguiti da Instagram
             </h2>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[#8e8e9a] mt-0.5">
               Importa il file ufficiale di Instagram o incolla una lista di handle
             </p>
           </div>
           <button
             id="close-import-modal"
             onClick={onClose}
-            className="p-1 rounded-lg text-stone-400 hover:text-stone-700 hover:bg-stone-200 transition cursor-pointer"
+            className="p-1 rounded-sm text-[#8e8e9a] hover:text-white hover:bg-[#1a1a1f] transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tab Selector */}
-        <div className="flex border-b border-stone-200 bg-white px-6 gap-6 text-xs font-medium">
+        <div className="flex border-b border-[#26262b] bg-[#121216] px-6 gap-6 text-xs font-medium overflow-x-auto no-scrollbar">
           <button
             id="tab-file-btn"
             onClick={() => {
@@ -125,7 +125,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
             className={`py-3 border-b-2 cursor-pointer transition ${
               activeTab === "file"
                 ? "border-indigo-600 text-indigo-700 font-semibold"
-                : "border-transparent text-stone-500 hover:text-stone-800"
+                : "border-transparent text-[#8e8e9a] hover:text-[#8e8e9a]"
             }`}
           >
             File Ufficiale (JSON / HTML)
@@ -139,7 +139,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
             className={`py-3 border-b-2 cursor-pointer transition ${
               activeTab === "paste"
                 ? "border-indigo-600 text-indigo-700 font-semibold"
-                : "border-transparent text-stone-500 hover:text-stone-800"
+                : "border-transparent text-[#8e8e9a] hover:text-[#8e8e9a]"
             }`}
           >
             Incolla Nomi / Handle
@@ -153,7 +153,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
             className={`py-3 border-b-2 cursor-pointer transition flex items-center gap-1.5 ${
               activeTab === "guide"
                 ? "border-indigo-600 text-indigo-700 font-semibold"
-                : "border-transparent text-stone-500 hover:text-stone-800"
+                : "border-transparent text-[#8e8e9a] hover:text-[#8e8e9a]"
             }`}
           >
             <HelpCircle className="w-3.5 h-3.5" />
@@ -193,7 +193,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
                 className={`border-2 border-dashed rounded-2xl p-8 text-center cursor-pointer transition flex flex-col items-center justify-center gap-3 ${
                   dragOver
                     ? "border-indigo-500 bg-indigo-50/50"
-                    : "border-stone-300 hover:border-stone-400 bg-stone-50/50"
+                    : "border-[#26262b] hover:border-[#26262b] bg-[#1a1a1f]/50"
                 }`}
               >
                 <input
@@ -207,26 +207,26 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
                   <Upload className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-stone-800">
-                    Trascina qui il file <code className="text-xs bg-stone-200 px-1 py-0.5 rounded text-indigo-700 font-mono">following.json</code>
+                  <p className="text-sm font-semibold text-[#8e8e9a]">
+                    Trascina qui il file <code className="text-xs bg-[#1a1a1f] px-1 py-0.5 rounded text-indigo-700 font-mono">following.json</code>
                   </p>
-                  <p className="text-xs text-stone-500 mt-1">
+                  <p className="text-xs text-[#8e8e9a] mt-1">
                     oppure clicca per selezionarlo dal computer (.json, .html, .txt)
                   </p>
                 </div>
-                <div className="flex items-center gap-2 text-[11px] text-stone-400">
+                <div className="flex items-center gap-2 text-[11px] text-[#8e8e9a]">
                   <FileCode className="w-3.5 h-3.5" />
                   <span>Supporta export ufficiale Meta Accounts Center</span>
                 </div>
               </div>
 
-              <div className="bg-stone-50 rounded-xl p-3 border border-stone-200 text-xs text-stone-600 flex items-start gap-2.5">
-                <HelpCircle className="w-4 h-4 text-stone-500 mt-0.5 shrink-0" />
+              <div className="bg-[#1a1a1f] rounded-xl p-3 border border-[#26262b] text-xs text-[#8e8e9a] flex items-start gap-2.5">
+                <HelpCircle className="w-4 h-4 text-[#8e8e9a] mt-0.5 shrink-0" />
                 <div className="space-y-1">
-                  <p className="font-medium text-stone-800">
+                  <p className="font-medium text-[#8e8e9a]">
                     Non hai ancora scaricato il file da Instagram?
                   </p>
-                  <p className="text-stone-500">
+                  <p className="text-[#8e8e9a]">
                     Instagram permette a ogni utente di scaricare l'elenco esatto delle persone seguite.
                     Controlla la tab <strong>"Guida Meta"</strong> per vedere i 3 semplici passaggi.
                   </p>
@@ -238,7 +238,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
           {/* TAB 2: INCOLLA TESTO */}
           {activeTab === "paste" && (
             <div className="space-y-3">
-              <label className="block text-xs font-medium text-stone-700">
+              <label className="block text-xs font-medium text-[#8e8e9a]">
                 Incolla handle o link Instagram (uno per riga o separati da virgola):
               </label>
               <textarea
@@ -247,9 +247,9 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
                 onChange={(e) => setPastedText(e.target.value)}
                 placeholder={`@pentagramdesign\n@studiodumbar\nhttps://www.instagram.com/bureauborsche/\nnormarchitects\nstudiofeixen\nformafantasma`}
                 rows={7}
-                className="w-full text-xs font-mono p-3 border border-stone-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="w-full text-xs font-mono p-3 border border-[#26262b] rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
-              <p className="text-[11px] text-stone-500">
+              <p className="text-[11px] text-[#8e8e9a]">
                 Puoi incollare sia username singoli (con o senza @) che URL completi di Instagram.
               </p>
               <button
@@ -264,7 +264,7 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
 
           {/* TAB 3: GUIDA META / HOW TO DOWNLOAD */}
           {activeTab === "guide" && (
-            <div className="space-y-3 text-xs text-stone-700">
+            <div className="space-y-3 text-xs text-[#8e8e9a]">
               <div className="bg-indigo-50/60 border border-indigo-200 rounded-xl p-3.5 space-y-1.5">
                 <div className="font-semibold text-indigo-900 text-sm flex items-center gap-1.5">
                   <Sparkles className="w-4 h-4 text-indigo-600" />
@@ -276,57 +276,57 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
               </div>
 
               <div className="space-y-2.5">
-                <div className="p-3 bg-white border border-stone-200 rounded-xl flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-stone-900 text-white font-bold text-xs flex items-center justify-center shrink-0">
+                <div className="p-3 bg-[#121216] border border-[#26262b] rounded-xl flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-#e2e2e2 text-white font-bold text-xs flex items-center justify-center shrink-0">
                     1
                   </div>
                   <div>
-                    <div className="font-semibold text-stone-900">
+                    <div className="font-semibold text-#e2e2e2">
                       Apri il Centro gestione account Meta
                     </div>
-                    <div className="text-stone-500 mt-0.5">
+                    <div className="text-[#8e8e9a] mt-0.5">
                       Su Instagram (da app o da instagram.com), vai su <strong>Impostazioni</strong> &rarr; <strong>Centro gestione account</strong> (Meta Accounts Center).
                     </div>
                   </div>
                 </div>
 
-                <div className="p-3 bg-white border border-stone-200 rounded-xl flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-stone-900 text-white font-bold text-xs flex items-center justify-center shrink-0">
+                <div className="p-3 bg-[#121216] border border-[#26262b] rounded-xl flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-#e2e2e2 text-white font-bold text-xs flex items-center justify-center shrink-0">
                     2
                   </div>
                   <div>
-                    <div className="font-semibold text-stone-900">
+                    <div className="font-semibold text-#e2e2e2">
                       Scarica le tue informazioni
                     </div>
-                    <div className="text-stone-500 mt-0.5">
+                    <div className="text-[#8e8e9a] mt-0.5">
                       Clicca su <strong>"Le tue informazioni e autorizzazioni"</strong> &rarr; <strong>"Scarica le tue informazioni"</strong> &rarr; <strong>"Scarica o trasferisci informazioni"</strong>.
                     </div>
                   </div>
                 </div>
 
-                <div className="p-3 bg-white border border-stone-200 rounded-xl flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-stone-900 text-white font-bold text-xs flex items-center justify-center shrink-0">
+                <div className="p-3 bg-[#121216] border border-[#26262b] rounded-xl flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-#e2e2e2 text-white font-bold text-xs flex items-center justify-center shrink-0">
                     3
                   </div>
                   <div>
-                    <div className="font-semibold text-stone-900">
+                    <div className="font-semibold text-#e2e2e2">
                       Scegli "Follower e profili seguiti" in formato JSON
                     </div>
-                    <div className="text-stone-500 mt-0.5">
+                    <div className="text-[#8e8e9a] mt-0.5">
                       Scegli il tuo account, seleziona <strong>"Alcune informazioni"</strong> &rarr; spunta <strong>"Follower e profili seguiti"</strong>. Come formato scegli <strong>JSON</strong> (oppure HTML).
                     </div>
                   </div>
                 </div>
 
-                <div className="p-3 bg-white border border-stone-200 rounded-xl flex items-start gap-3">
+                <div className="p-3 bg-[#121216] border border-[#26262b] rounded-xl flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0">
                     4
                   </div>
                   <div>
-                    <div className="font-semibold text-stone-900">
+                    <div className="font-semibold text-#e2e2e2">
                       Scarica il file e trascinalo qui!
                     </div>
-                    <div className="text-stone-500 mt-0.5">
+                    <div className="text-[#8e8e9a] mt-0.5">
                       Meta invierà il link per il download entro pochissimi minuti. All'interno dello zip troverai la cartella <code>connections/followers_and_following/following.json</code>. Trascinalo nella prima tab!
                     </div>
                   </div>
@@ -348,13 +348,13 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
           )}
 
           {/* Import mode options */}
-          <div className="pt-3 border-t border-stone-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs">
-            <label className="flex items-center gap-2 text-stone-600 cursor-pointer">
+          <div className="pt-3 border-t border-[#26262b] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs">
+            <label className="flex items-center gap-2 text-[#8e8e9a] cursor-pointer">
               <input
                 type="checkbox"
                 checked={replaceExisting}
                 onChange={(e) => setReplaceExisting(e.target.checked)}
-                className="rounded border-stone-300 text-indigo-600 focus:ring-indigo-500"
+                className="rounded border-[#26262b] text-indigo-600 focus:ring-indigo-500"
               />
               <span>Sostituisci la lista attuale (invece di unire i profili)</span>
             </label>
@@ -371,10 +371,10 @@ export const ImportModal: React.FC<ImportModalProps> = ({ isOpen, onClose, onImp
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 bg-stone-50 border-t border-stone-200 flex items-center justify-end gap-2">
+        <div className="px-6 py-3 bg-[#1a1a1f] border-t border-[#26262b] flex items-center justify-end gap-2">
           <button
             onClick={onClose}
-            className="px-4 py-2 text-xs font-medium text-stone-600 hover:text-stone-800 hover:bg-stone-200/60 rounded-xl transition cursor-pointer"
+            className="px-4 py-2 text-xs font-medium text-[#8e8e9a] hover:text-[#8e8e9a] hover:bg-[#1a1a1f]/60 rounded-xl transition cursor-pointer"
           >
             Chiudi
           </button>

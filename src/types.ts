@@ -11,6 +11,7 @@ export interface AIStudioAnalysis {
   mapsLinks?: string[];
   visualStyle: string;
   keySpecialties: string[];
+  designTags?: string[]; // E.g., Light Design, Automotive, Architecture...
   description: string;
   website?: string;
   analyzedAt: string;
@@ -32,7 +33,7 @@ export interface InstagramProfile {
   aiAnalysis?: AIStudioAnalysis;
 }
 
-export type ViewMode = "table" | "cards" | "map" | "insights";
+export type ViewMode = "table" | "cards" | "map" | "insights" | "graph";
 
 export type FilterCategory = "all" | string;
 export type FilterStatus = "all" | "analyzed" | "pending" | "favorites";

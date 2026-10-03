@@ -4,6 +4,7 @@ import { CategoryFilter } from "./components/CategoryFilter";
 import { StudioTable } from "./components/StudioTable";
 import { StudioCard } from "./components/StudioCard";
 import { StudioMap } from "./components/StudioMap";
+import { StudioGraph } from "./components/StudioGraph";
 import { StudioInsights } from "./components/StudioInsights";
 import { ImportModal } from "./components/ImportModal";
 import { StudioDetailModal } from "./components/StudioDetailModal";
@@ -100,6 +101,8 @@ export default function App() {
         const matchesStyle = ai?.visualStyle?.toLowerCase().includes(q) || false;
         const matchesSpecialties =
           ai?.keySpecialties?.some((s) => s.toLowerCase().includes(q)) || false;
+        const matchesDesignTags = 
+          ai?.designTags?.some((s) => s.toLowerCase().includes(q)) || false;
         const matchesNotes = p.notes?.toLowerCase().includes(q) || false;
 
         if (
@@ -109,6 +112,7 @@ export default function App() {
           !matchesCountry &&
           !matchesStyle &&
           !matchesSpecialties &&
+          !matchesDesignTags &&
           !matchesNotes
         ) {
           return false;
@@ -288,6 +292,7 @@ export default function App() {
                   mapsLinks: Array.isArray(importedMatch.aiAnalysis.mapsLinks) ? importedMatch.aiAnalysis.mapsLinks : [],
                   visualStyle: importedMatch.aiAnalysis.visualStyle || "",
                   keySpecialties: Array.isArray(importedMatch.aiAnalysis.keySpecialties) ? importedMatch.aiAnalysis.keySpecialties : [],
+                  designTags: Array.isArray(importedMatch.aiAnalysis.designTags) ? importedMatch.aiAnalysis.designTags : [],
                   description: importedMatch.aiAnalysis.description || "",
                   website: importedMatch.aiAnalysis.website || "",
                   analyzedAt: new Date().toISOString()
@@ -415,6 +420,13 @@ export default function App() {
 
         {viewMode === "map" && (
           <StudioMap
+            profiles={filteredProfiles}
+            onSelectProfile={(profile) => setSelectedProfileForDetail(profile)}
+          />
+        )}
+
+        {viewMode === "graph" && (
+          <StudioGraph
             profiles={filteredProfiles}
             onSelectProfile={(profile) => setSelectedProfileForDetail(profile)}
           />

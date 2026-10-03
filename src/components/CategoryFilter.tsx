@@ -9,6 +9,7 @@ import {
   Star,
   Sparkles,
   X,
+  Network,
 } from "lucide-react";
 import { ViewMode, FilterStatus } from "../types";
 
@@ -50,11 +51,11 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
   totalCount,
 }) => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 sticky top-0 z-30 bg-[#0a0a0b] py-3 -mx-4 px-4 sm:mx-0 sm:px-0 sm:py-0 border-b border-[#26262b] sm:border-b-0 pb-3 sm:pb-0 mb-4 sm:mb-0">
       {/* Top row: Search input, Country filter, Status Filter, View Mode Switcher */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
         {/* Search Bar */}
-        <div className="relative flex-1 max-w-md">
+        <div className="relative flex-1 w-full max-w-none lg:max-w-md">
           <Search className="w-4 h-4 text-[#6b6b76] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             id="search-input"
@@ -75,9 +76,9 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
         </div>
 
         {/* Filters Group */}
-        <div className="flex items-center flex-wrap gap-2 text-xs">
+        <div className="flex items-center overflow-x-auto pb-1 lg:pb-0 no-scrollbar gap-2 text-xs w-full lg:w-auto">
           {/* Country Selector */}
-          <div className="relative">
+          <div className="relative shrink-0">
             <select
               id="country-filter-select"
               value={selectedCountry}
@@ -97,7 +98,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           </div>
 
           {/* Status Buttons */}
-          <div className="inline-flex rounded-sm bg-[#121216] p-0.5 border border-[#26262b]">
+          <div className="inline-flex rounded-sm bg-[#121216] p-0.5 border border-[#26262b] shrink-0">
             <button
               id="filter-all-btn"
               onClick={() => onStatusFilterChange("all")}
@@ -160,7 +161,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
           </div>
 
           {/* View Mode Toggle */}
-          <div className="inline-flex rounded-sm bg-[#121216] p-0.5 border border-[#26262b] ml-auto sm:ml-0">
+          <div className="inline-flex rounded-sm bg-[#121216] p-0.5 border border-[#26262b] shrink-0">
             <button
               id="view-table-btn"
               onClick={() => onViewModeChange("table")}
@@ -198,6 +199,18 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
               <MapPin className="w-4 h-4" />
             </button>
             <button
+              id="view-graph-btn"
+              onClick={() => onViewModeChange("graph")}
+              title="Network Graph"
+              className={`p-1.5 rounded-sm transition cursor-pointer ${
+                viewMode === "graph"
+                  ? "bg-[#2a2a32] text-white"
+                  : "text-[#6b6b76] hover:text-[#e2e2e2]"
+              }`}
+            >
+              <Network className="w-4 h-4" />
+            </button>
+            <button
               id="view-insights-btn"
               onClick={() => onViewModeChange("insights")}
               title="Data Insights"
@@ -214,7 +227,7 @@ export const CategoryFilter: React.FC<CategoryFilterProps> = ({
       </div>
 
       {/* Category Pills Bar */}
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none text-xs">
+      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar text-xs">
         <button
           id="cat-pill-all"
           onClick={() => onCategoryChange("all")}

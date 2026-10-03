@@ -10,6 +10,7 @@ import {
   Loader2
 } from "lucide-react";
 import { InstagramProfile } from "../types";
+import { ProfilePreview } from "./ProfilePreview";
 
 // --- Geocoding Utils ---
 const GEOCODE_CACHE_KEY = "curator_geocode_cache_v1";
@@ -238,28 +239,35 @@ export const StudioMap: React.FC<StudioMapProps> = ({ profiles, onSelectProfile 
               key={marker.locationStr}
               width={40}
               anchor={marker.coords}
-              onClick={() => {
-                if (marker.count === 1) {
-                  onSelectProfile(marker.profiles[0]);
-                } else {
-                  setSelectedCityOnMap(marker.locationStr);
-                }
-              }}
             >
-              <div
-                className={`relative flex items-center justify-center cursor-pointer group transition-transform ${
-                  selectedCityOnMap === marker.locationStr ? "scale-125 z-10" : "hover:scale-110"
-                }`}
-              >
-                <div className="absolute inset-0 bg-[#c5a059] rounded-full animate-ping opacity-20"></div>
-                <div className={`w-8 h-8 rounded-full border-2 shadow-lg flex items-center justify-center font-bold text-[10px] ${
-                  selectedCityOnMap === marker.locationStr
-                    ? "bg-[#c5a059] border-white text-black"
-                    : "bg-[#16161a] border-[#c5a059] text-white"
-                }`}>
-                  {marker.count}
+              {marker.count === 1 ? (
+                <ProfilePreview profile={marker.profiles[0]}>
+                  <div
+                    onClick={() => onSelectProfile(marker.profiles[0])}
+                    className={`relative flex items-center justify-center cursor-pointer group transition-transform hover:scale-110 z-10`}
+                  >
+                    <div className={`w-8 h-8 rounded-full border-2 shadow-lg flex items-center justify-center font-bold text-[10px] bg-[#16161a] border-[#c5a059] text-white`}>
+                      1
+                    </div>
+                  </div>
+                </ProfilePreview>
+              ) : (
+                <div
+                  onClick={() => setSelectedCityOnMap(selectedCityOnMap === marker.locationStr ? null : marker.locationStr)}
+                  onMouseEnter={() => setSelectedCityOnMap(marker.locationStr)}
+                  className={`relative flex items-center justify-center cursor-pointer group transition-transform ${
+                    selectedCityOnMap === marker.locationStr ? "scale-125 z-10" : "hover:scale-110 z-10"
+                  }`}
+                >
+                  <div className={`w-8 h-8 rounded-full border-2 shadow-lg flex items-center justify-center font-bold text-[10px] ${
+                    selectedCityOnMap === marker.locationStr
+                      ? "bg-[#c5a059] border-white text-black"
+                      : "bg-[#16161a] border-[#c5a059] text-white"
+                  }`}>
+                    {marker.count}
+                  </div>
                 </div>
-              </div>
+              )}
             </Marker>
           ))}
 
